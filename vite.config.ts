@@ -1,14 +1,8 @@
-import { resolve } from "node:path";
-import { defineConfig } from "vite";
-import dts from "vite-plugin-dts";
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [dts({ rollupTypes: true })],
+  base: './', // Ensures relative asset paths work on GitHub Pages
   build: {
-    lib: {
-      entry: resolve(__dirname, "./src/mod.ts"),
-      name: "chronlang-engine",
-      fileName: "chronlang-engine",
-    },
+    outDir: 'dist',
   },
 });
